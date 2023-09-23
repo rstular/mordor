@@ -1,0 +1,8 @@
+/target
+mordor.db
+config.toml
+/migration/target
+.venv
+test_setup/
+__pycache__/
+mordor.tar.gz

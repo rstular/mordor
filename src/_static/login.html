@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login selector</title>
+    <style>
+      :root {
+        --primary-color: #00a6d6;
+        --secondary-color: #ffffff;
+        --mid-blue: #0076c2;
+        --dark-blue: #0c2340;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 0;
+        margin: 0;
+        background-color: var(--dark-blue);
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .button-container {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        border-radius: 10px;
+        background-color: var(--secondary-color);
+        min-width: 400px;
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+      }
+
+      .button {
+        background-color: var(--primary-color);
+        text-align: center;
+        text-decoration: none;
+        color: var(--secondary-color);
+        width: 100%;
+        font-size: 1.8rem;
+        border-radius: 10px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: inline-block;
+        transition: background-color 0.2s ease-in-out;
+        margin-bottom: 1rem;
+      }
+
+      .button:hover {
+        background-color: var(--mid-blue);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button-container">
+        <h1>Select login type</h1>
+        {# TODO: add support for subpaths #}
+        {% for module in modules %}
+        {% if redirect %}
+        <a class="button" href="/login/{{ module.subpath }}/?redirect={{ redirect }}">
+        {% else %}
+        <a class="button" href="/login/{{ module.subpath }}/">
+        {% endif %}
+          {{ module.display_name }}
+        </a>
+        {% endfor %}
+        <i>Having problems logging in? Contact course staff</i>
+      </div>
+    </div>
+  </body>
+</html>

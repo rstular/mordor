@@ -1,0 +1,12 @@
+target
+.git
+.venv
+Dockerfile
+.dockerignore
+mordor.tar.gz
+generate_entries.sh
+mordor.db
+test_setup/
+deployment/
+.gitignore
+utilities/

@@ -1,0 +1,6 @@
+secret_key = "YOUR_HEX_KEY_HERE"
+
+[database]
+
+[http]
+address = "0.0.0.0:8080"
