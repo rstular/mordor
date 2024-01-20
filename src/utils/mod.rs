@@ -7,7 +7,7 @@ pub mod defaults;
 
 #[macro_export]
 macro_rules! enclose {
-    ( ($( $x:ident ),*) $y:expr ) => {
+    ( ($( $x:ident ),*), $y:expr ) => {
         {
             $(let $x = $x.clone();)*
             $y

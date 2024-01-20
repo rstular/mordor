@@ -48,7 +48,7 @@ async fn main() -> Result<()> {
     let db_conn = database::init(&configuration.database).await?;
     info!("Database connection established");
 
-    HttpServer::new(enclose! { (db_conn, configuration) move || {
+    HttpServer::new(enclose!((db_conn, configuration), move || {
         let login_modules = {
             let mut builder = controllers::ModuleBuilder::new();
             builder.register_module(Box::<BasicAuthLoginModule>::default());
@@ -70,7 +70,7 @@ async fn main() -> Result<()> {
             .app_data(web::Data::new(db_conn.clone()))
             .app_data(web::Data::new(configuration.clone()))
             .configure(|sc| controllers::initialize(sc, login_modules))
-    }})
+    }))
     .bind(configuration.http.address)?
     .run()
     .await?;

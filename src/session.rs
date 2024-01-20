@@ -31,7 +31,6 @@ impl CookieTTLSessionStore {
     }
 }
 
-#[async_trait::async_trait(?Send)]
 impl SessionStore for CookieTTLSessionStore {
     async fn load(&self, session_key: &SessionKey) -> Result<Option<SessionState>, LoadError> {
         let state: SessionStateWrapper = serde_json::from_str(session_key.as_ref())

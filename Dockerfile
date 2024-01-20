@@ -1,5 +1,5 @@
 # FROM rust:1.72-slim-bookworm as builder
-FROM rust:1.72-alpine3.18 as builder
+FROM rust:1.75-alpine3.19 as builder
 
 RUN apk add --no-cache musl-dev
 
@@ -9,7 +9,7 @@ COPY . .
 RUN cargo build --release
 
 
-FROM alpine:3.18
+FROM alpine:3.19
 # FROM debian:bookworm-slim
 WORKDIR /mordor/data
 
