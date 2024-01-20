@@ -1,6 +1,6 @@
 [package]
 name = "mordor"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["rstular <rok@stular.eu>"]
 edition = "2021"
 publish = false

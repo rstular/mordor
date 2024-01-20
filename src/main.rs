@@ -24,6 +24,7 @@ mod settings;
 mod utils;
 
 pub const COOKIE_NAME: &str = "mordor-session";
+const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 #[derive(Debug, Parser)]
 #[clap(author, version, about, long_about = None)]
@@ -36,7 +37,7 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     logging::init()?;
-    info!("Initializing mordor...");
+    info!("Initializing mordor version {}", VERSION);
 
     let args = Args::parse();
 
